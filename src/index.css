@@ -213,7 +213,7 @@ button:focus {
     width: calc(100vw - 60px);
     height: 20vw;
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     z-index: 10;
     display: flex;
@@ -265,7 +265,7 @@ button:focus {
     background-color: transparent;
     cursor: pointer;
     position: absolute;
-    bottom: -85vh;
+    top: 20px;
     left: 20px;
     z-index: 20;
   }
@@ -278,7 +278,7 @@ button:focus {
     width: 40vw;
     height: 20vw;
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: 0;
     z-index: 10;
     display: flex;
