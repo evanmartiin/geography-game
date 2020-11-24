@@ -226,7 +226,7 @@ const MapChart = ({ setTooltipContent, setTooltipActive, setSound }) => {
 
     const countryVerify = country => {
         if (country === randomCountry[0]) {
-            if (score === 3) {
+            if (score === 10) {
                 setSound('applause');
                 setScore(score + 1);
                 document.getElementById("timerStop").click();
