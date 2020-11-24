@@ -261,13 +261,7 @@ button:focus {
   }
 
   .sound {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 20;
+    display: none;
   }
   
   .sound img {
