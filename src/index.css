@@ -1,13 +1,184 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "Gotham Bold";
+  src: url("./Gotham-Bold.otf") format("truetype");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "Gotham";
+  src: url("./Gotham-Book.otf") format("truetype");
+}
+
+html {
+  font-family: "Gotham", sans-serif;
+  font-size: 1.25rem;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #CCE9FF;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.bold {
+  font-family: "Gotham Bold";
+}
+
+.hide {
+  display: none;
+}
+
+.map {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.infos {
+  padding: 0 20px 0 20px;
+  height: 10vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  pointer-events: none;
+  background-color: rgba(250, 250, 250, 0.5);
+  border: 10px solid black;
+  border-top-right-radius: 50px;
+}
+
+.infos button {
+  margin-top: 10px;
+  font-family: "Gotham";
+  font-size: 1vw;
+  background-color: transparent;
+  border: 3px solid black;
+  border-radius: 10px;
+  transition: 0.2s;
+  padding: 5px;
+}
+
+.infos button:hover {
+  background-color: black;
+  color: white;
+}
+
+.countryInfos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 30px;
+  min-width: 20vw;
+}
+
+.timer {
+  width: 20vw;
+  height: 10vw;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  background-color: rgba(250, 250, 250, 0.5);
+  border: 10px solid black;
+  border-top-left-radius: 50px;
+}
+
+.infos button {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5vw;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 3vw;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+  font: 4vw "Gotham Bold";
+}
+
+.startDiv {
+  border: 10px solid black;
+  background-color: rgba(250, 250, 250, 0.5);
+  border-radius: 50px;
+  position: absolute;
+  z-index: 20;
+  top: 50vh;
+  left: 50vw;
+  height: 20vw;
+  width: 20vw;
+  padding: 0px 20px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.startDiv p {
+  text-align: center;
+  font: 1vw "Gotham";
+}
+
+.startDiv span {
+  font: 1vw "Gotham Bold";
+}
+
+.startDiv button {
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: "Gotham";
+  font-size: 2vw;
+  background-color: transparent;
+  border: 3px solid black;
+  border-radius: 10px;
+  transition: 0.2s;
+  padding: 5px;
+}
+
+.startDiv button:hover {
+  background-color: black;
+  color: white;
+}
+
+.backgroundDiv {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 15;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+button:focus {
+  outline: none;
 }
