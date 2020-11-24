@@ -196,3 +196,150 @@ button:focus {
 .sound img {
   width: 50px;
 }
+
+.tooltipDisplay {
+  display: block !important;
+}
+
+
+
+
+
+
+
+@media only screen and (max-device-width: 1024px) {
+  .infos {
+    padding: 0 20px 0 20px;
+    width: calc(100vw - 60px);
+    height: 20vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    pointer-events: none;
+    background-color: rgba(250, 250, 250, 0.5);
+    border: 10px solid black;
+    border-top-right-radius: 0px;
+  }
+  
+  .infos button {
+    margin-top: 0px;
+    font-family: "Gotham";
+    font-size: 3vw;
+    background-color: transparent;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin-left: 20px;
+    transition: 0.2s;
+    padding: 5px;
+  }
+  
+  .infos button:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  .countryInfos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 0px;
+    min-width: 20vw;
+  }
+
+  h1 {
+    font-size: 5vw;
+  }
+
+  h2 {
+    font-size: 7vw;
+  }
+
+  .sound {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    bottom: -85vh;
+    left: 20px;
+    z-index: 20;
+  }
+  
+  .sound img {
+    width: 50px;
+  }
+
+  .timer {
+    width: 40vw;
+    height: 20vw;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    background-color: rgba(250, 250, 250, 0.5);
+    border: 10px solid black;
+    border-top-left-radius: 0px;
+  }
+
+  .startDiv {
+    border: 10px solid black;
+    background-color: rgba(250, 250, 250, 0.5);
+    border-radius: 50px;
+    position: absolute;
+    z-index: 20;
+    top: 50vh;
+    left: 50vw;
+    height: 70vw;
+    width: 70vw;
+    padding: 0px 20px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .startDiv p {
+    text-align: center;
+    font: 3.5vw "Gotham";
+  }
+  
+  .startDiv span {
+    font: 3vw "Gotham Bold";
+  }
+  
+  .startDiv button {
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: "Gotham";
+    font-size: 8vw;
+    background-color: transparent;
+    border: 3px solid black;
+    border-radius: 10px;
+    transition: 0.2s;
+    padding: 5px;
+  }
+  
+  .startDiv button:hover {
+    background-color: black;
+    color: white;
+  }
+
+  h3 {
+    font-size: 15vw;
+  }
+
+  .tooltipDisplay {
+    display: none !important;
+  }
+}

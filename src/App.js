@@ -38,7 +38,7 @@ function App() {
     return (
       <div>
         <MapChart setTooltipContent={setContent} setTooltipActive={setActive} setSound={setSound} setSoundActive={setSoundActive}/>
-        <ReactTooltip>Est-ce "<span className="bold">{content}</span>" ?</ReactTooltip>
+        <div className="tooltipDisplay"><ReactTooltip>Est-ce "<span className="bold">{content}</span>" ?</ReactTooltip></div>
       </div>
     );
   }
