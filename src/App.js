@@ -5,41 +5,44 @@ import useSound from 'use-sound';
 
 import "./index.css";
 
-import correctSound from './correct.mp3';
-import incorrectSound from './incorrect.mp3';
-import applauseSound from './applause.mp3';
+import correctSound from './assets/correct.mp3';
+import incorrectSound from './assets/incorrect.mp3';
+import applauseSound from './assets/applause.mp3';
 
 import MapChart from "./MapChart";
 
 function App() {
   const [content, setContent] = useState("");
-  const [active, setActive] = useState("false");
+  const [active, setActive] = useState(false);
   const [sound, setSound] = useState('');
+  const [soundActive, setSoundActive] = useState('true');
 
   const [playCorrect] = useSound(correctSound, { volume: 0.3 })
   const [playIncorrect] = useSound(incorrectSound, { volume: 0.5 })
   const [playApplause] = useSound(applauseSound, { volume: 0.5 })
 
-  if (sound === 'correct') {
-    playCorrect();
-    setSound('');
-  } else if (sound === 'incorrect') {
-    playIncorrect();
-    setSound('');
-  } else if (sound === 'applause') {
-    playApplause();
-    setSound('');
+  if(soundActive === 'true') {
+    if (sound === 'correct') {
+      playCorrect();
+      setSound('');
+    } else if (sound === 'incorrect') {
+      playIncorrect();
+      setSound('');
+    } else if (sound === 'applause') {
+      playApplause();
+      setSound('');
+    }
   }
 
-  if (active === 'true') {
+  if (active) {
     return (
       <div>
-        <MapChart setTooltipContent={setContent} setTooltipActive={setActive} setSound={setSound} />
+        <MapChart setTooltipContent={setContent} setTooltipActive={setActive} setSound={setSound} setSoundActive={setSoundActive}/>
         <ReactTooltip>Est-ce "<span className="bold">{content}</span>" ?</ReactTooltip>
       </div>
     );
   }
-  else if (active === 'false') {
+  else if (!active) {
     return (
       <div>
         <MapChart setTooltipContent={setContent} setTooltipActive={setActive} />

@@ -12,6 +12,9 @@ import {
 import Timer from "react-compound-timer";
 import "./index.css";
 
+import playImg from './assets/sound-play.png';
+import pauseImg from './assets/sound-pause.png';
+
 const geoUrl =
     "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
@@ -226,8 +229,8 @@ const MapChart = ({ setTooltipContent, setTooltipActive, setSound }) => {
 
     const countryVerify = country => {
         if (country === randomCountry[0]) {
-            if (score === 10) {
-                setSound('applause');
+            if (score === 9) {
+                if (isSoundActive) setSound('applause');
                 setScore(score + 1);
                 document.getElementById("timerStop").click();
                 setStatus('win');
@@ -247,13 +250,13 @@ const MapChart = ({ setTooltipContent, setTooltipActive, setSound }) => {
                 }
                 setTime(document.getElementById("timerScore").textContent);
             } else {
-                setSound('correct');
+                if (isSoundActive) setSound('correct');
                 usedCountryList.remove(randomCountry);
                 updateCountry(usedCountryList[Math.floor(Math.random() * usedCountryList.length)]);
                 setScore(score + 1);
             }
         } else {
-            setSound('incorrect');
+            if (isSoundActive) setSound('incorrect');
         }
     }
 
@@ -276,11 +279,16 @@ const MapChart = ({ setTooltipContent, setTooltipActive, setSound }) => {
         setStatus('playing');
     }
 
+    const soundButton = () => {
+        setIsSoundActive(!isSoundActive);
+    }
+
     const [randomCountry, updateCountry] = useState(firstRandomCountry);
     const [score, setScore] = useState(0);
     const [status, setStatus] = useState('start');
     const [time, setTime] = useState('');
     const [comment, setComment] = useState('');
+    const [isSoundActive, setIsSoundActive] = useState(true);
 
     return (
         <>
@@ -302,6 +310,10 @@ const MapChart = ({ setTooltipContent, setTooltipActive, setSound }) => {
                 </div>
                 <h2><span className="bold">{score}</span>/10</h2>
             </div>
+
+            <button className="sound" onClick={soundButton}>
+                <img src={isSoundActive ? playImg : pauseImg} alt="Start/Stop le son" />
+            </button>
 
             <div className="timer">
                 <h2><Timer startImmediately={false}>
@@ -335,11 +347,11 @@ const MapChart = ({ setTooltipContent, setTooltipActive, setSound }) => {
                                         onMouseEnter={() => {
                                             // const { NAME_LONG, POP_EST, CONTINENT } = geo.properties;
                                             // setTooltipContent(`${NAME_LONG} (${CONTINENT}) — ${rounded(POP_EST)}`);
-                                            setTooltipActive('true');
+                                            setTooltipActive(true);
                                             setTooltipContent(randomCountry[1]);
                                         }}
                                         onMouseLeave={() => {
-                                            setTooltipActive('false');
+                                            setTooltipActive(false);
                                             setTooltipContent("");
                                         }}
                                         onClick={() => {

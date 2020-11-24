@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Gotham Bold";
-  src: url("./Gotham-Bold.otf") format("truetype");
+  src: url("./assets/Gotham-Bold.otf") format("truetype");
 }
 
 @font-face {
   font-family: "Gotham";
-  src: url("./Gotham-Book.otf") format("truetype");
+  src: url("./assets/Gotham-Book.otf") format("truetype");
 }
 
 html {
@@ -181,4 +181,18 @@ h3 {
 
 button:focus {
   outline: none;
+}
+
+.sound {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 20;
+}
+
+.sound img {
+  width: 50px;
 }
