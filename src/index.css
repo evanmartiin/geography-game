@@ -264,7 +264,7 @@ button:focus {
     border: none;
     background-color: transparent;
     cursor: pointer;
-    position: absolute;
+    position: fixed;
     top: 20px;
     left: 20px;
     z-index: 20;
