@@ -10,7 +10,6 @@ import {
     //   Annotation
 } from "react-simple-maps";
 import Timer from "react-compound-timer";
-
 import "./index.css";
 
 const geoUrl =
@@ -221,13 +220,14 @@ const countryList = [
 let usedCountryList = [];
 countryList.forEach(element => usedCountryList.push(element));
 
-const MapChart = ({ setTooltipContent, setTooltipActive }) => {
+const MapChart = ({ setTooltipContent, setTooltipActive, setSound }) => {
 
     let firstRandomCountry = usedCountryList[Math.floor(Math.random() * usedCountryList.length)];
 
     const countryVerify = country => {
         if (country === randomCountry[0]) {
-            if (score === 9) {
+            if (score === 3) {
+                setSound('applause');
                 setScore(score + 1);
                 document.getElementById("timerStop").click();
                 setStatus('win');
@@ -246,12 +246,14 @@ const MapChart = ({ setTooltipContent, setTooltipActive }) => {
                     setComment('Euh.. merci d\'avoir joué.')
                 }
                 setTime(document.getElementById("timerScore").textContent);
-            }
-            else {
+            } else {
+                setSound('correct');
                 usedCountryList.remove(randomCountry);
                 updateCountry(usedCountryList[Math.floor(Math.random() * usedCountryList.length)]);
                 setScore(score + 1);
             }
+        } else {
+            setSound('incorrect');
         }
     }
 

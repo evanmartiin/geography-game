@@ -1,18 +1,40 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import ReactTooltip from "react-tooltip";
+import useSound from 'use-sound';
 
 import "./index.css";
+
+import correctSound from './correct.mp3';
+import incorrectSound from './incorrect.mp3';
+import applauseSound from './applause.mp3';
 
 import MapChart from "./MapChart";
 
 function App() {
   const [content, setContent] = useState("");
   const [active, setActive] = useState("false");
+  const [sound, setSound] = useState('');
+
+  const [playCorrect] = useSound(correctSound, { volume: 0.3 })
+  const [playIncorrect] = useSound(incorrectSound, { volume: 0.5 })
+  const [playApplause] = useSound(applauseSound, { volume: 0.5 })
+
+  if (sound === 'correct') {
+    playCorrect();
+    setSound('');
+  } else if (sound === 'incorrect') {
+    playIncorrect();
+    setSound('');
+  } else if (sound === 'applause') {
+    playApplause();
+    setSound('');
+  }
+
   if (active === 'true') {
     return (
       <div>
-        <MapChart setTooltipContent={setContent} setTooltipActive={setActive}/>
+        <MapChart setTooltipContent={setContent} setTooltipActive={setActive} setSound={setSound} />
         <ReactTooltip>Est-ce "<span className="bold">{content}</span>" ?</ReactTooltip>
       </div>
     );
@@ -20,7 +42,7 @@ function App() {
   else if (active === 'false') {
     return (
       <div>
-        <MapChart setTooltipContent={setContent} setTooltipActive={setActive}/>
+        <MapChart setTooltipContent={setContent} setTooltipActive={setActive} />
       </div>
     );
   }
