@@ -311,9 +311,11 @@ const MapChart = ({ setTooltipContent, setTooltipActive, setSound }) => {
                 <h2><span className="bold">{score}</span>/10</h2>
             </div>
 
-            <button className="sound" onClick={soundButton}>
-                <img src={isSoundActive ? playImg : pauseImg} alt="Start/Stop le son" />
-            </button>
+            <div className="sound">
+                <button onClick={soundButton}>
+                    <img src={isSoundActive ? playImg : pauseImg} alt="Start/Stop le son" />
+                </button>
+            </div>
 
             <div className="timer">
                 <h2><Timer startImmediately={false}>
