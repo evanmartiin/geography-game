@@ -336,7 +336,7 @@ const MapChart = ({ setTooltipContent, setTooltipActive, setSound }) => {
             </div>
 
             <ComposableMap data-tip="" projectionConfig={{ scale: 200 }} className="map">
-                <ZoomableGroup>
+                <ZoomableGroup maxZoom='30'>
                     <Graticule stroke="#CCC" />
                     <Geographies geography={geoUrl}>
                         {({ geographies }) =>
