@@ -237,15 +237,15 @@ const MapChart = ({ setTooltipContent, setTooltipActive, setSound }) => {
                 let timeForComment = parseInt(document.getElementById("timerMinutes").textContent * 60 + document.getElementById("timerSeconds").textContent);
                 if (timeForComment < 15) {
                     setComment('Du jamais vu.')
-                } else if (timeForComment < 30) {
+                } else if (timeForComment <= 30) {
                     setComment('Incroyable !')
-                } else if (timeForComment < 60) {
+                } else if (timeForComment <= 60) {
                     setComment('Super !')
-                } else if (timeForComment < 120) {
+                } else if (timeForComment <= 120) {
                     setComment('Pas mal !')
-                } else if (timeForComment < 300) {
+                } else if (timeForComment <= 300) {
                     setComment('Tu peux t\'améliorer.')
-                } else {
+                } else if (timeForComment > 300) {
                     setComment('Euh.. merci d\'avoir joué.')
                 }
                 setTime(document.getElementById("timerScore").textContent);
