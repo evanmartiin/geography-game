@@ -15,8 +15,10 @@ import "./index.css";
 import playImg from './assets/sound-play.png';
 import pauseImg from './assets/sound-pause.png';
 
+// const geoUrl =
+//     "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 const geoUrl =
-    "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
+    "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
 
 // const rounded = num => {
 //     if (num > 1000000000) {
