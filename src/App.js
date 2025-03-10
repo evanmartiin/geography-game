@@ -18,8 +18,8 @@ function App() {
   const [soundActive, setSoundActive] = useState('true');
 
   const [playCorrect] = useSound(correctSound, { volume: 0.3 })
-  const [playIncorrect] = useSound(incorrectSound, { volume: 0.5 })
-  const [playApplause] = useSound(applauseSound, { volume: 0.5 })
+  const [playIncorrect] = useSound(incorrectSound, { volume: 0.8 })
+  const [playApplause] = useSound(applauseSound, { volume: 1 })
 
   if(soundActive === 'true') {
     if (sound === 'correct') {

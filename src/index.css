@@ -191,6 +191,10 @@ button:focus {
   z-index: 20;
 }
 
+.sound button:hover {
+  cursor: pointer;
+}
+
 .sound button {
   border: none;
   background-color: transparent;

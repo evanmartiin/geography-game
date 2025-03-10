@@ -17,18 +17,9 @@ import pauseImg from './assets/sound-pause.png';
 
 // const geoUrl =
 //     "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
-const geoUrl =
-    "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
-
-// const rounded = num => {
-//     if (num > 1000000000) {
-//         return Math.round(num / 100000000) / 10 + "Bn";
-//     } else if (num > 1000000) {
-//         return Math.round(num / 100000) / 10 + "M";
-//     } else {
-//         return Math.round(num / 100) / 10 + "K";
-//     }
-// };
+// const geoUrl =
+//     "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
+import geoUrl from "./assets/geo.json";
 
 // eslint-disable-next-line
 Array.prototype.remove = function () {
@@ -42,188 +33,7 @@ Array.prototype.remove = function () {
     return this;
 };
 
-const countryList = [
-    ["Afghanistan", "Afghanistan"],
-    ["Albania", "Albanie"],
-    ["Algeria", "Algérie"],
-    ["Angola", "Angola"],
-    ["Antarctica", "Antarctique"],
-    ["Argentina", "Argentine"],
-    ["Armenia", "Arménie"],
-    ["Australia", "Australie"],
-    ["Austria", "Autriche"],
-    ["Azerbaijan", "Azerbaïdjan"],
-    ["Bahamas", "Bahamas"],
-    ["Bangladesh", "Bangladesh"],
-    ["Belarus", "Biélorussie"],
-    ["Belgium", "Belgique"],
-    ["Belize", "Belize"],
-    ["Benin", "Bénin"],
-    ["Bhutan", "Bhoutan"],
-    ["Bolivia", "Bolivie"],
-    ["Bosnia and Herzegovina", "Bosnie-Herzégovine"],
-    ["Botswana", "Botswana"],
-    ["Brazil", "Brésil"],
-    ["Brunei Darussalam", "Brunei"],
-    ["Bulgaria", "Bulgarie"],
-    ["Burkina Faso", "Burkina Faso"],
-    ["Burundi", "Burundi"],
-    ["Cambodia", "Cambodge"],
-    ["Cameroon", "Cameroun"],
-    ["Canada", "Canada"],
-    ["Central African Republic", "République Centrafricaine"],
-    ["Chad", "Tchad"],
-    ["Chile", "Chili"],
-    ["China", "Chine"],
-    ["Colombia", "Colombie"],
-    ["Costa Rica", "Costa Rica"],
-    ["Croatia", "Croatie"],
-    ["Cuba", "Cuba"],
-    ["Cyprus", "Chypre"],
-    ["Czech Republic", "République Tchèque"],
-    ["Côte d'Ivoire", "Côte d'Ivoire"],
-    ["Denmark", "Danemark"],
-    ["Dem. Rep. Korea", "Corée du Nord"],
-    ["Democratic Republic of the Congo", "République démocratique du Congo"],
-    ["Djibouti", "Djibouti"],
-    ["Dominican Republic", "République Dominicaine"],
-    ["Ecuador", "Équateur"],
-    ["Egypt", "Égypte"],
-    ["El Salvador", "El Salvador"],
-    ["Equatorial Guinea", "Guinée Équatoriale"],
-    ["Eritrea", "Érythrée"],
-    ["Estonia", "Estonie"],
-    ["Ethiopia", "Éthiopie"],
-    ["Falkland Islands", "Îles Falkland"],
-    ["Fiji", "Fidji"],
-    ["Finland", "Finlande"],
-    ["France", "France"],
-    ["French Southern and Antarctic Lands", "Terres Australes et Antarctiques Françaises"],
-    ["Gabon", "Gabon"],
-    ["Georgia", "Géorgie"],
-    ["Germany", "Allemagne"],
-    ["Ghana", "Ghana"],
-    ["Greece", "Grèce"],
-    ["Greenland", "Groenland"],
-    ["Guatemala", "Guatemala"],
-    ["Guinea", "Guinée"],
-    ["Guinea-Bissau", "Guinée-Bissau"],
-    ["Guyana", "Guyane"],
-    ["Haiti", "Haïti"],
-    ["Honduras", "Honduras"],
-    ["Hungary", "Hongrie"],
-    ["Iceland", "Islande"],
-    ["India", "Inde"],
-    ["Indonesia", "Indonésie"],
-    ["Iran", "Iran"],
-    ["Iraq", "Irak"],
-    ["Ireland", "Irlande"],
-    ["Israel", "Israël"],
-    ["Italy", "Italie"],
-    ["Jamaica", "Jamaïque"],
-    ["Japan", "Japon"],
-    ["Jordan", "Jordanie"],
-    ["Kazakhstan", "Kazakhstan"],
-    ["Kenya", "Kenya"],
-    ["Kosovo", "Kosovo"],
-    ["Kuwait", "Koweït"],
-    ["Kyrgyzstan", "Kirghizistan"],
-    ["Lao PDR", "Laos"],
-    ["Latvia", "Lettonie"],
-    ["Lebanon", "Liban"],
-    ["Lesotho", "Lesotho"],
-    ["Liberia", "Libéria"],
-    ["Libya", "Libye"],
-    ["Lithuania", "Lituanie"],
-    ["Luxembourg", "Luxembourg"],
-    ["Macedonia", "Macédoine du Nord"],
-    ["Madagascar", "Madagascar"],
-    ["Malawi", "Malawi"],
-    ["Malaysia", "Malaisie"],
-    ["Mali", "Mali"],
-    ["Mauritania", "Mauritanie"],
-    ["Mexico", "Mexique"],
-    ["Moldova", "Moldavie"],
-    ["Mongolia", "Mongolie"],
-    ["Montenegro", "Monténégro"],
-    ["Morocco", "Maroc"],
-    ["Mozambique", "Mozambique"],
-    ["Myanmar", "Birmanie"],
-    ["Namibia", "Namibie"],
-    ["Nepal", "Népal"],
-    ["Netherlands", "Pays-Bas"],
-    ["New Caledonia", "Nouvelle-Calédonie"],
-    ["New Zealand", "Nouvelle-Zélande"],
-    ["Nicaragua", "Nicaragua"],
-    ["Niger", "Niger"],
-    ["Nigeria", "Nigéria"],
-    ["Norway", "Norvège"],
-    ["Northern Cyprus", "Chypre du Nord"],
-    ["Oman", "Oman"],
-    ["Pakistan", "Pakistan"],
-    ["Palestine", "Palestine"],
-    ["Panama", "Panama"],
-    ["Papua New Guinea", "Papouasie-Nouvelle-Guinée"],
-    ["Paraguay", "Paraguay"],
-    ["Peru", "Pérou"],
-    ["Philippines", "Philippines"],
-    ["Poland", "Pologne"],
-    ["Portugal", "Portugal"],
-    ["Puerto Rico", "Porto Rico"],
-    ["Qatar", "Qatar"],
-    ["Republic of Korea", "Corée du Sud"],
-    ["Republic of the Congo", "République du Congo"],
-    ["Romania", "Roumanie"],
-    ["Russian Federation", "Russie"],
-    ["Rwanda", "Rwanda"],
-    ["Saudi Arabia", "Arabie Saoudite"],
-    ["Senegal", "Sénégal"],
-    ["Serbia", "Serbie"],
-    ["Sierra Leone", "Sierra Leone"],
-    ["Slovakia", "Slovaquie"],
-    ["Slovenia", "Slovénie"],
-    ["Solomon Islands", "Îles Salomon"],
-    ["Somalia", "Somalie"],
-    ["Somaliland", "Somaliland"],
-    ["South Africa", "Afrique du Sud"],
-    ["South Sudan", "Soudan du Sud"],
-    ["Spain", "Espagne"],
-    ["Sri Lanka", "Sri Lanka"],
-    ["Sudan", "Soudan"],
-    ["Suriname", "Suriname"],
-    ["Sweden", "Suède"],
-    ["Swaziland", "Eswatini"],
-    ["Switzerland", "Suisse"],
-    ["Syria", "Syrie"],
-    ["Taiwan", "Taïwan"],
-    ["Tajikistan", "Tadjikistan"],
-    ["Tanzania", "Tanzanie"],
-    ["Thailand", "Thaïlande"],
-    ["The Gambia", "Gambie"],
-    ["Timor-Leste", "Timor Oriental"],
-    ["Togo", "Togo"],
-    ["Trinidad and Tobago", "Trinité-et-Tobago"],
-    ["Tunisia", "Tunisie"],
-    ["Turkey", "Turquie"],
-    ["Turkmenistan", "Turkménistan"],
-    ["Uganda", "Ouganda"],
-    ["Ukraine", "Ukraine"],
-    ["United Arab Emirates", "Émirats Arabes Unis"],
-    ["United Kingdom", "Royaume-Uni"],
-    ["United States", "États-Unis"],
-    ["Uruguay", "Uruguay"],
-    ["Uzbekistan", "Ouzbékistan"],
-    ["Vanuatu", "Vanuatu"],
-    ["Venezuela", "Vénézuela"],
-    ["Vietnam", "Vietnam"],
-    ["Western Sahara", "Sahara Occidental"],
-    ["Yemen", "Yémen"],
-    ["Zambia", "Zambie"],
-    ["Zimbabwe", "Zimbabwe"]
-];
-
-let usedCountryList = [];
-countryList.forEach(element => usedCountryList.push(element));
+let usedCountryList = geoUrl.objects.countries.geometries.map((o) => { return [o.properties.name, o.properties.name_fr || o.properties.name] });
 
 const MapChart = ({ setTooltipContent, setTooltipActive, setSound }) => {
 
@@ -274,8 +84,7 @@ const MapChart = ({ setTooltipContent, setTooltipActive, setSound }) => {
     const restartGame = () => {
         document.getElementById("timerReset").click();
         document.getElementById("timerStart").click();
-        usedCountryList = [];
-        countryList.forEach(element => usedCountryList.push(element));
+        usedCountryList = geoUrl.objects.countries.geometries.map((o) => { return [o.properties.name, o.properties.name_fr || o.properties.name] });
         updateCountry(usedCountryList[Math.floor(Math.random() * usedCountryList.length)]);
         setScore(0);
         setStatus('playing');
@@ -338,19 +147,17 @@ const MapChart = ({ setTooltipContent, setTooltipActive, setSound }) => {
             </div>
 
             <ComposableMap data-tip="" projectionConfig={{ scale: 200 }} className="map">
-                <ZoomableGroup maxZoom='30'>
+                <ZoomableGroup maxZoom={30}>
                     <Graticule stroke="#CCC" />
                     <Geographies geography={geoUrl}>
                         {({ geographies }) =>
                             geographies.map((geo) => {
-                                const d = geo.properties.CONTINENT;
+                                const d = geo.properties.continent;
                                 return (
                                     <Geography
                                         key={geo.rsmKey}
                                         geography={geo}
                                         onMouseEnter={() => {
-                                            // const { NAME_LONG, POP_EST, CONTINENT } = geo.properties;
-                                            // setTooltipContent(`${NAME_LONG} (${CONTINENT}) — ${rounded(POP_EST)}`);
                                             setTooltipActive(true);
                                             setTooltipContent(randomCountry[1]);
                                         }}
@@ -359,8 +166,8 @@ const MapChart = ({ setTooltipContent, setTooltipActive, setSound }) => {
                                             setTooltipContent("");
                                         }}
                                         onClick={() => {
-                                            const { NAME_LONG } = geo.properties;
-                                            countryVerify(NAME_LONG);
+                                            const { name } = geo.properties;
+                                            countryVerify(name);
                                         }}
                                         fill={
                                             {
